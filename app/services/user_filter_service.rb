@@ -7,10 +7,10 @@ class UserFilterService
 
   def run
     users = User.all
-    users = users.where(continent: @params[:continents]) if @params[:continents]
-    users = users.where(country: @params[:countries]) if @params[:countries]
-    users = users.where(state: @params[:states]) if @params[:states]
-    users = users.where(city: @params[:cities]) if @params[:cities]
+    users = users.where(continent: @params[:continents]) if @params[:continents].present?
+    users = users.where(country: @params[:countries]) if @params[:countries].present?
+    users = users.where(state: @params[:states]) if @params[:states].present?
+    users = users.where(city: @params[:cities]) if @params[:cities].present?
     users
   end
 end
